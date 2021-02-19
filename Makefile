@@ -1,8 +1,18 @@
 current-dir := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 .PHONY: build
-build: deps
+build: deps start
 
+.PHONY: start
+start: CMD=up --build -d
+
+.PHONY: stop
+stop: CMD=down
+
+start stop:
+	@docker-compose $(CMD)
+
+# Dependencies
 deps: composer-install
 
 composer-env-file:
@@ -19,3 +29,8 @@ composer-install composer-update: composer-env-file
 		composer:2 $(CMD) \
 			--ignore-platform-reqs \
 			--no-ansi
+
+# Cache
+.PHONY: cache-clear
+cache-clear:
+	@docker exec -it bray-socialnetwork-backend-php apps/socialnetwork/backend/bin/console cache:clear

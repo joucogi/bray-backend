@@ -1,7 +1,7 @@
 version: '3'
 services:
-  bray_backend_php:
-    container_name: joucogi-bray-backend-php
+  bray_socialnetwork_backend_php:
+    container_name: bray-socialnetwork-backend-php
     build:
       context: .
       dockerfile: Dockerfile
@@ -10,4 +10,4 @@ services:
       - "8030:8030"
     volumes:
       - .:/app
-    command: symfony serve --dir=apps/backend/public --port=8030 --force-php-discovery
+    command: symfony serve --dir=apps/socialnetwork/backend/public --port=8030 --force-php-discovery

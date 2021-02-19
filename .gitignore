@@ -3,8 +3,8 @@
 /.env.local
 /.env.local.php
 /.env.*.local
-/apps/backend/config/secrets/prod/prod.decrypt.private.php
-/apps/backend/public/bundles/
+/apps/socialnetwork/backend/config/secrets/prod/prod.decrypt.private.php
+/apps/socialnetwork/backend/public/bundles/
 /var/
 /vendor/
 ###< symfony/framework-bundle ###

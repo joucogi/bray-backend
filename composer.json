@@ -25,7 +25,7 @@
     "autoload": {
         "psr-4": {
             "Bray\\": "src/",
-            "Bray\\Apps\\Backend\\": "apps/backend/src/"
+            "Bray\\Apps\\SocialNetwork\\Backend\\": "apps/socialnetwork/backend/src/"
         }
     },
     "autoload-dev": {
@@ -37,18 +37,6 @@
         "symfony/polyfill-ctype": "*",
         "symfony/polyfill-iconv": "*",
         "symfony/polyfill-php72": "*"
-    },
-    "scripts": {
-        "auto-scripts": {
-            "cache:clear": "apps/backend/bin/console",
-            "assets:install %PUBLIC_DIR%": "apps/backend/bin/console"
-        },
-        "post-install-cmd": [
-            "@auto-scripts"
-        ],
-        "post-update-cmd": [
-            "@auto-scripts"
-        ]
     },
     "conflict": {
         "symfony/symfony": "*"
