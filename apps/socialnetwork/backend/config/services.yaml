@@ -14,6 +14,11 @@ services:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
+    # TAGGED
+    _instanceof:
+        Bray\Shared\Domain\Bus\Query\QueryHandler:
+            tags: ['bray.query_handler']
+
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
     Bray\Apps\SocialNetwork\Backend\Controller\:
@@ -27,5 +32,7 @@ services:
     Bray\Shared\:
         resource: '../../../../src/Shared'
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+    # -- APP DEFINITIONS --
+    # Query Handlers
+    Bray\Shared\Infrastructure\Bus\Query\SynchronousQueryBus:
+        arguments: [!tagged bray.query_handler]

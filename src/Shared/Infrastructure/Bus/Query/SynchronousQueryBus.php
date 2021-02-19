@@ -13,7 +13,8 @@ final class SynchronousQueryBus implements QueryBus
 {
     private MessageBus $bus;
 
-    public function __construct() {
+    public function __construct(iterable $queryHandlers) {
+        dump($queryHandlers);exit;
         $this->bus = new MessageBus();
     }
 
