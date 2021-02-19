@@ -24,7 +24,10 @@ composer-install: CMD=install
 .PHONY: composer-update
 composer-update: CMD=update
 
-composer-install composer-update: composer-env-file
+.PHONY: composer-require
+composer-require: CMD=require $(module)
+
+composer-install composer-update composer-require: composer-env-file
 	@docker run --rm $(INTERACTIVE) --volume $(current-dir):/app --user $(id -u):$(id -g) \
 		composer:2 $(CMD) \
 			--ignore-platform-reqs \
