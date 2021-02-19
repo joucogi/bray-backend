@@ -7,18 +7,35 @@ namespace Bray\Shared\Infrastructure\Bus\Query;
 use Bray\Shared\Domain\Bus\Query\Query;
 use Bray\Shared\Domain\Bus\Query\QueryBus;
 use Bray\Shared\Domain\Bus\Query\Response;
+use Bray\Shared\Infrastructure\Bus\CallableFirstParameterExtractor;
+use Symfony\Component\Messenger\Handler\HandlersLocator;
 use Symfony\Component\Messenger\MessageBus;
+use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
+use Symfony\Component\Messenger\Stamp\HandledStamp;
 
 final class SynchronousQueryBus implements QueryBus
 {
     private MessageBus $bus;
 
     public function __construct(iterable $queryHandlers) {
-        dump($queryHandlers);exit;
-        $this->bus = new MessageBus();
+
+        $handlersMapping = CallableFirstParameterExtractor::forCallables($queryHandlers);
+
+        $this->bus = new MessageBus([
+            new HandleMessageMiddleware(
+                new HandlersLocator($handlersMapping)
+            )
+        ]);
     }
 
     public function ask(Query $query): ?Response {
-        return null;
+        try {
+            $stamp = $this->bus->dispatch($query)->last(HandledStamp::class);
+
+            return $stamp->getResult();
+        } catch (\RuntimeException $e) {
+            dump($e->getMessage());
+            exit;
+        }
     }
 }
