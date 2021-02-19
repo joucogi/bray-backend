@@ -1,0 +1,4 @@
+brays_get:
+  path: /brays
+  controller: Bray\Apps\SocialNetwork\Backend\Controller\Brays\BraysGetController
+  methods:  [GET]
