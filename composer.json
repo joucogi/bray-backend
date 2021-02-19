@@ -24,12 +24,13 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "Bray\\": "src/",
+            "Bray\\Apps\\Backend\\": "apps/backend/src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "Bray\\Tests\\": "tests/"
         }
     },
     "replace": {
