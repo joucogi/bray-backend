@@ -39,8 +39,8 @@
     },
     "scripts": {
         "auto-scripts": {
-            "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "cache:clear": "apps/backend/bin/console",
+            "assets:install %PUBLIC_DIR%": "apps/backend/bin/console"
         },
         "post-install-cmd": [
             "@auto-scripts"
