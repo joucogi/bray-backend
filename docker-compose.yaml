@@ -1,0 +1,13 @@
+version: '3'
+services:
+  bray_backend_php:
+    container_name: joucogi-bray-backend-php
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8030:8030"
+    volumes:
+      - .:/app
+    command: symfony serve --dir=apps/backend/public --port=8030 --force-php-discovery
