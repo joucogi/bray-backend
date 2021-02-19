@@ -1,5 +1,5 @@
 imports:
-    - { resource: ../../../../src/SocialNetwork/Shared/Infrastructure/Symfony/DependencyInjection/socialnetwork_services.yaml }
+  - { resource: ../../../../src/SocialNetwork/Shared/Infrastructure/Symfony/DependencyInjection/socialnetwork_services.yaml }
 
 # This file is the entry point to configure your own services.
 # Files in the packages/ subdirectory configure your dependencies.
@@ -9,30 +9,30 @@ imports:
 parameters:
 
 services:
-    # default configuration for services in *this* file
-    _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
-        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
-    # TAGGED
-    _instanceof:
-        Bray\Shared\Domain\Bus\Query\QueryHandler:
-            tags: ['bray.query_handler']
+  # TAGGED
+  _instanceof:
+      Bray\Shared\Domain\Bus\Query\QueryHandler:
+          tags: ['bray.query_handler']
 
-    # controllers are imported separately to make sure services can be injected
-    # as action arguments even if you don't extend any base controller class
-    Bray\Apps\SocialNetwork\Backend\Controller\:
-        resource: '../src/Controller/'
-        tags: ['controller.service_arguments']
+  # controllers are imported separately to make sure services can be injected
+  # as action arguments even if you don't extend any base controller class
+  Bray\Apps\SocialNetwork\Backend\Controller\:
+    resource: '../src/Controller/'
+    tags: [ 'controller.service_arguments' ]
 
-    # Bounded Contexts
-    Bray\SocialNetwork\:
-        resource: '../../../../src/SocialNetwork'
+  # Bounded Contexts
+  Bray\SocialNetwork\:
+      resource: '../../../../src/SocialNetwork'
 
-    Bray\Shared\:
-        resource: '../../../../src/Shared'
+  Bray\Shared\:
+    resource: '../../../../src/Shared'
 
-    # -- APP DEFINITIONS --
-    # Query Handlers
-    Bray\Shared\Infrastructure\Bus\Query\SynchronousQueryBus:
-        arguments: [!tagged bray.query_handler]
+  # -- APP DEFINITIONS --
+  # Query Handlers
+  Bray\Shared\Infrastructure\Bus\Query\SynchronousQueryBus:
+      arguments: [!tagged bray.query_handler]
