@@ -6,8 +6,8 @@ namespace Bray\Apps\SocialNetwork\Backend\Controller\Brays;
 
 use Bray\Shared\Domain\Bus\Query\QueryBus;
 use Bray\SocialNetwork\Brays\Application\SearchAll\BraysSearchAllQuery;
-use Brays\SocialNetwork\Brays\Application\BrayResponse;
-use Brays\SocialNetwork\Brays\Application\BraysResponse;
+use Bray\SocialNetwork\Brays\Application\BrayResponse;
+use Bray\SocialNetwork\Brays\Application\BraysResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use function Lambdish\Phunctional\map;
