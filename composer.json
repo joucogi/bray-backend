@@ -1,6 +1,6 @@
 {
     "type": "project",
-    "license": "proprietary",
+    "license": "MIT",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
@@ -15,6 +15,10 @@
         "symfony/messenger": "5.2.*",
         "symfony/yaml": "5.2.*"
     },
+    "require-dev": {
+        "mockery/mockery": "^1.4",
+        "phpunit/phpunit": "^9.5"
+    },
     "config": {
         "optimize-autoloader": true,
         "preferred-install": {
@@ -24,13 +28,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Bray\\": "src/",
-            "Bray\\Apps\\SocialNetwork\\Backend\\": "apps/socialnetwork/backend/src/"
+            "Bray\\Apps\\SocialNetwork\\Backend\\": "apps/socialnetwork/backend/src/",
+
+            "Bray\\": ["src"]
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Bray\\Tests\\": "tests/"
+            "Bray\\Tests\\": ["tests"]
         }
     },
     "replace": {

@@ -27,7 +27,10 @@ composer-update: CMD=update
 .PHONY: composer-require
 composer-require: CMD=require $(module)
 
-composer-install composer-update composer-require: composer-env-file
+.PHONY: composer-require-dev
+composer-require-dev: CMD=require --dev  $(module)
+
+composer-install composer-update composer-require composer-require-dev: composer-env-file
 	@docker run --rm $(INTERACTIVE) --volume $(current-dir):/app --user $(id -u):$(id -g) \
 		composer:2 $(CMD) \
 			--ignore-platform-reqs \
@@ -37,3 +40,8 @@ composer-install composer-update composer-require: composer-env-file
 .PHONY: cache-clear
 cache-clear:
 	@docker exec -it bray-socialnetwork-backend-php apps/socialnetwork/backend/bin/console cache:clear
+
+# Test
+.PHONY: test
+test: composer-env-file
+	docker exec bray-socialnetwork-backend-php ./vendor/bin/phpunit --testsuite socialnetwork
