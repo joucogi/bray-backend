@@ -14,4 +14,4 @@ jobs:
           s_max_size: '300'
           m_max_size: '600'
           l_max_size: '1400'
-          fail_if_xl: 'true'
+          fail_if_xl: 'false'
