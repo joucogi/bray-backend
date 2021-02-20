@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Bray\SocialNetwork\Brays\Application\SearchAll;
 
 use Bray\Shared\Domain\Bus\Query\QueryHandler;
-use Brays\SocialNetwork\Brays\Application\BraysResponse;
+use Bray\SocialNetwork\Brays\Application\BraysResponse;
 
 final class BraysSearchAllQueryHandler implements QueryHandler
 {

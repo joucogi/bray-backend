@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Brays\SocialNetwork\Brays\Application;
+namespace Bray\SocialNetwork\Brays\Application;
 
 use Bray\Shared\Domain\Bus\Query\Response;
 

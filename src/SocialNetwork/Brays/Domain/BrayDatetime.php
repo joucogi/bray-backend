@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Brays\SocialNetwork\Domain;
+namespace Bray\SocialNetwork\Brays\Domain;
 
 use \RuntimeException;
 

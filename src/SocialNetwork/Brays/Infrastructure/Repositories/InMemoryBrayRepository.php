@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Bray\SocialNetwork\Brays\Infrastructure\Repositories;
 
 use Bray\SocialNetwork\Brays\Domain\Contracts\BrayRepository;
-use Brays\SocialNetwork\Domain\Bray;
+use Bray\SocialNetwork\Domain\Bray;
 
 final class InMemoryBrayRepository implements BrayRepository
 {
