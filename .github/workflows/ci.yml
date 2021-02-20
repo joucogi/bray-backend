@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: docker-compose pull
+
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
+        with:
+          key: bray-socialnetwork-cache-${{ secrets.CACHE_VERSION }}-{hash}
+          restore-keys: |
+            bray-socialnetwork-cache-${{ secrets.CACHE_VERSION }}-
+      - name: Install dependencies
+        run: make deps
+
+      - name: Start all the environment
+        run: make start
+
+      - name: Run the tests
+        run: make test
+
