@@ -4,17 +4,29 @@ declare(strict_types=1);
 
 namespace Bray\SocialNetwork\Brays\Application\SearchAll;
 
+use Bray\SocialNetwork\Brays\Domain\Contracts\BrayRepository;
 use Brays\SocialNetwork\Brays\Application\BrayResponse;
 use Brays\SocialNetwork\Brays\Application\BraysResponse;
+use Brays\SocialNetwork\Domain\Bray;
+use function Lambdish\Phunctional\map;
 
 final class AllBraysSearcher
 {
+    public function __construct(private BrayRepository $repository) { }
+
     public function __invoke() {
+        $brays = $this->repository->searchAll();
+
         return new BraysResponse(
-            new BrayResponse('123123123123-123123-12312-123', 'This is first bray', 'Joel', '2021-02-17 12:32:43'),
-            new BrayResponse('123123123123-123123-12312-125', 'This is second bray', 'Joel', '2021-02-17 16:35:43'),
-            new BrayResponse('123123123123-123123-12312-126', 'This is third bray', 'Joan', '2021-02-17 12:32:43'),
-            new BrayResponse('123123123123-123123-12312-127', 'This is fourth bray', 'Joel', '2021-02-17 12:32:43')
+            ...map(fn(Bray $bray): BrayResponse =>
+                new BrayResponse(
+                    $bray->id(),
+                    $bray->message(),
+                    $bray->user(),
+                    $bray->datetime()
+                ),
+                $brays
+            )
         );
     }
 }
