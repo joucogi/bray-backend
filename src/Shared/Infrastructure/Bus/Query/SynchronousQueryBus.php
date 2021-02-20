@@ -8,6 +8,7 @@ use Bray\Shared\Domain\Bus\Query\Query;
 use Bray\Shared\Domain\Bus\Query\QueryBus;
 use Bray\Shared\Domain\Bus\Query\Response;
 use Bray\Shared\Infrastructure\Bus\CallableFirstParameterExtractor;
+use http\Exception\RuntimeException;
 use Symfony\Component\Messenger\Handler\HandlersLocator;
 use Symfony\Component\Messenger\MessageBus;
 use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
@@ -34,8 +35,7 @@ final class SynchronousQueryBus implements QueryBus
 
             return $stamp->getResult();
         } catch (\RuntimeException $e) {
-            dump($e->getMessage());
-            exit;
+            throw new \RuntimeException($e->getMessage());
         }
     }
 }
