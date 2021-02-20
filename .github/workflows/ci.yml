@@ -25,11 +25,11 @@ jobs:
       - name: Install dependencies
         run: make deps
 
-      - name: Wait for the environment to get up
-        run: sleep 8
-
       - name: Start all the environment
         run: make start
+
+      - name: Wait for the environment to get up
+        run: sleep 8
 
       - name: Run the tests
         run: make test
