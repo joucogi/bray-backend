@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bray\SocialNetwork\Brays\Infrastructure\Repositories;
+namespace Bray\SocialNetwork\Brays\Infrastructure\Persistence;
 
 use Bray\SocialNetwork\Brays\Domain\Contracts\BrayRepository;
 use Bray\SocialNetwork\Brays\Domain\Bray;

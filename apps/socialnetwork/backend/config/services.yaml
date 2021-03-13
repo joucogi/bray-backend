@@ -44,4 +44,4 @@ services:
     arguments: [ !tagged bray.command_handler ]
 
   # -- IMPLEMENTATIONS SELECTOR --
-  Bray\SocialNetwork\Brays\Domain\Contracts\BrayRepository: '@Bray\SocialNetwork\Brays\Infrastructure\Repositories\DoctrineBrayRepository'
+  Bray\SocialNetwork\Brays\Domain\Contracts\BrayRepository: '@Bray\SocialNetwork\Brays\Infrastructure\Persistence\DoctrineBrayRepository'
