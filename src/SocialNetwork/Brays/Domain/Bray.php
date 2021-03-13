@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Bray\SocialNetwork\Brays\Domain;
 
-use JetBrains\PhpStorm\Pure;
+use Bray\Shared\Domain\Aggregate\AggregateRoot;
 
-final class Bray
+final class Bray extends AggregateRoot
 {
     private BrayId       $id;
     private BrayMessage  $message;

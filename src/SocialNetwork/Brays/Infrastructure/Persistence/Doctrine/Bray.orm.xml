@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Bray\SocialNetwork\Brays\Domain\Bray" table="brays">
+        <id name="id" type="bray_id" column="id" length="36" />
+
+        <embedded name="user" class="Bray\SocialNetwork\Brays\Domain\BrayUser" use-column-prefix="false" />
+        <embedded name="message" class="Bray\SocialNetwork\Brays\Domain\BrayMessage" use-column-prefix="false" />
+        <embedded name="datetime" class="Bray\SocialNetwork\Brays\Domain\BrayDatetime" use-column-prefix="false" />
+    </entity>
+
+</doctrine-mapping>
