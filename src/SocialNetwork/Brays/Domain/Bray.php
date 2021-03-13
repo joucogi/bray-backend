@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Bray\SocialNetwork\Brays\Domain;
 
+use JetBrains\PhpStorm\Pure;
+
 final class Bray
 {
     private BrayId       $id;
@@ -21,6 +23,10 @@ final class Bray
         $this->message  = new BrayMessage($message);
         $this->user     = new BrayUser($user);
         $this->datetime = new BrayDatetime($datetime);
+    }
+
+    public static function create(string $id, string $message, string $user, string $date): self {
+        return new self($id, $message, $user, $date);
     }
 
     public function id(): string {
