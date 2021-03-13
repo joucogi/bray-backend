@@ -42,3 +42,6 @@ services:
 
   Bray\Shared\Infrastructure\Bus\Command\SynchronousCommandBus:
     arguments: [ !tagged bray.command_handler ]
+
+  # -- IMPLEMENTATIONS SELECTOR --
+  Bray\SocialNetwork\Brays\Domain\Contracts\BrayRepository: '@Bray\SocialNetwork\Brays\Infrastructure\Repositories\DoctrineBrayRepository'
