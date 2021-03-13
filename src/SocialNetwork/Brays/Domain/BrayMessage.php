@@ -18,13 +18,13 @@ final class BrayMessage
     private function ensureIsAValidMessage(string $value) {
         if ('' === $value) {
             throw new RuntimeException(
-                sprintf('%s is not a valid message', $value)
+                sprintf('Empty message is not valid')
             );
         }
 
         if (255 < strlen($value)) {
             throw new RuntimeException(
-                sprintf('%s is longer than 255 characters', $value)
+                sprintf('The message "%s" is longer than 255 characters', $value)
             );
         }
     }
