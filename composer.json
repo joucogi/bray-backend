@@ -1,12 +1,11 @@
 {
-    "name": "Bray",
+    "name": "joucogi/bray",
     "description": "A social network for brayers",
     "type": "project",
     "license": "MIT",
     "minimum-stability": "dev",
-    "prefer-stable": true,
     "require": {
-        "php": ">=7.2.5",
+        "php": "^8.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "lambdish/phunctional": "^2.1",
