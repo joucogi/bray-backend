@@ -16,8 +16,11 @@ services:
 
   # TAGGED
   _instanceof:
-      Bray\Shared\Domain\Bus\Query\QueryHandler:
-          tags: ['bray.query_handler']
+    Bray\Shared\Domain\Bus\Query\QueryHandler:
+      tags: [ 'bray.query_handler' ]
+
+    Bray\Shared\Domain\Bus\Command\CommandHandler:
+      tags: [ 'bray.command_handler' ]
 
   # controllers are imported separately to make sure services can be injected
   # as action arguments even if you don't extend any base controller class
@@ -35,4 +38,7 @@ services:
   # -- APP DEFINITIONS --
   # Query Handlers
   Bray\Shared\Infrastructure\Bus\Query\SynchronousQueryBus:
-      arguments: [!tagged bray.query_handler]
+    arguments: [ !tagged bray.query_handler ]
+
+  Bray\Shared\Infrastructure\Bus\Command\SynchronousCommandBus:
+    arguments: [ !tagged bray.command_handler, '%app.max_handlers%' ]
