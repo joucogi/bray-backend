@@ -32,7 +32,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Bray\\Apps\\SocialNetwork\\Backend\\": "apps/socialnetwork/backend/src/",
+            "Bray\\Apps\\Socialnetwork\\Backend\\": "apps/socialnetwork/backend/src/",
 
             "Bray\\": ["src"]
         }

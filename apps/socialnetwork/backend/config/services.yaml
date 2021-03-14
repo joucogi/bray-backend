@@ -1,5 +1,5 @@
 imports:
-  - { resource: ../../../../src/SocialNetwork/Shared/Infrastructure/Symfony/DependencyInjection/socialnetwork_services.yaml }
+  - { resource: ../../../../src/Socialnetwork/Shared/Infrastructure/Symfony/DependencyInjection/socialnetwork_services.yaml }
 
 # This file is the entry point to configure your own services.
 # Files in the packages/ subdirectory configure your dependencies.
@@ -24,13 +24,13 @@ services:
 
   # controllers are imported separately to make sure services can be injected
   # as action arguments even if you don't extend any base controller class
-  Bray\Apps\SocialNetwork\Backend\Controller\:
+  Bray\Apps\Socialnetwork\Backend\Controller\:
     resource: '../src/Controller/'
     tags: [ 'controller.service_arguments' ]
 
   # Bounded Contexts
-  Bray\SocialNetwork\:
-      resource: '../../../../src/SocialNetwork'
+  Bray\Socialnetwork\:
+      resource: '../../../../src/Socialnetwork'
 
   Bray\Shared\:
     resource: '../../../../src/Shared'

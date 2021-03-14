@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Bray\Apps\SocialNetwork\Backend\Controller\Brays;
+namespace Bray\Apps\Socialnetwork\Backend\Controller\Brays;
 
 use Bray\Shared\Domain\Bus\Query\QueryBus;
-use Bray\SocialNetwork\Brays\Application\SearchAll\BraysSearchAllQuery;
-use Bray\SocialNetwork\Brays\Application\BrayResponse;
-use Bray\SocialNetwork\Brays\Application\BraysResponse;
+use Bray\Socialnetwork\Brays\Application\SearchAll\BraysSearchAllQuery;
+use Bray\Socialnetwork\Brays\Application\BrayResponse;
+use Bray\Socialnetwork\Brays\Application\BraysResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use function Lambdish\Phunctional\map;

@@ -1,9 +1,9 @@
 brays_get:
   path: /brays
-  controller: Bray\Apps\SocialNetwork\Backend\Controller\Brays\BraysGetController
+  controller: Bray\Apps\Socialnetwork\Backend\Controller\Brays\BraysGetController
   methods:  [GET]
 
 bray_put:
   path: /brays/{id}
-  controller: Bray\Apps\SocialNetwork\Backend\Controller\Brays\BraysPutController
+  controller: Bray\Apps\Socialnetwork\Backend\Controller\Brays\BraysPutController
   methods:  [PUT]

@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-use Bray\Apps\SocialNetwork\Backend\BraySocialNetworkBackendKernel;
+use Bray\Apps\Socialnetwork\Backend\SocialnetworkBackendKernel;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Dotenv\Dotenv;
@@ -38,6 +38,6 @@ if ($_SERVER['APP_DEBUG']) {
     }
 }
 
-$kernel = new BraySocialNetworkBackendKernel($_SERVER['APP_ENV'], (bool)$_SERVER['APP_DEBUG']);
+$kernel = new SocialnetworkBackendKernel($_SERVER['APP_ENV'], (bool)$_SERVER['APP_DEBUG']);
 $application = new Application($kernel);
 $application->run($input);

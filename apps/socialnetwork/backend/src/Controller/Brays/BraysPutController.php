@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Bray\Apps\SocialNetwork\Backend\Controller\Brays;
+namespace Bray\Apps\Socialnetwork\Backend\Controller\Brays;
 
 use Bray\Shared\Domain\Bus\Command\CommandBus;
-use Bray\SocialNetwork\Brays\Application\Create\CreateBrayCommand;
+use Bray\Socialnetwork\Brays\Application\Create\CreateBrayCommand;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
