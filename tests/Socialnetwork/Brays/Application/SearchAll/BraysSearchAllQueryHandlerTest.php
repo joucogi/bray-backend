@@ -16,6 +16,7 @@ use function Lambdish\Phunctional\map;
 
 class BraysSearchAllQueryHandlerTest extends MockeryTestCase
 {
+    /** @test */
     public function it_should_no_brays_when_is_empty(): void
     {
         $repository = Mockery::mock(BrayRepository::class);
@@ -39,6 +40,7 @@ class BraysSearchAllQueryHandlerTest extends MockeryTestCase
         $this->assertEquals($expected, $actual);
     }
 
+    /** @test */
     public function it_should_search_all_brays(): void
     {
         $repository = Mockery::mock(BrayRepository::class);
