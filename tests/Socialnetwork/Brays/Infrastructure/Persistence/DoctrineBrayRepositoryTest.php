@@ -6,20 +6,23 @@ namespace Bray\Tests\Socialnetwork\Brays\Infrastructure\Persistence;
 
 use Bray\Socialnetwork\Brays\Domain\Bray;
 use Bray\Tests\Socialnetwork\Brays\BraysModuleInfrastructureTestCase;
+use Bray\Tests\Socialnetwork\Brays\Domain\BrayIdMother;
+use Bray\Tests\Socialnetwork\Brays\Domain\BrayMother;
 use function Lambdish\Phunctional\each;
+use function Lambdish\Phunctional\sort;
 
 final class DoctrineBrayRepositoryTest extends BraysModuleInfrastructureTestCase
 {
     /** @test */
     public function it_should_save_a_course(): void {
-        $bray = new Bray('1231231231', 'This is a message', 'Joel', '2021-02-11 04:34');
+        $bray = BrayMother::create();
 
         $this->doctrineRepository()->save($bray);
     }
 
     /** @test */
     public function it_should_return_an_existing_bray(): void {
-        $bray = new Bray('1231231231', 'This is a message', 'Joel', '2021-02-11 04:34');
+        $bray = BrayMother::create();
 
         $this->doctrineRepository()->save($bray);
 
@@ -28,11 +31,21 @@ final class DoctrineBrayRepositoryTest extends BraysModuleInfrastructureTestCase
 
     /** @test */
     public function it_should_return_all_existing_brays(): void {
-        $brays = [
-            new Bray('1231231231', 'This is a message', 'Joel', '2021-02-11 04:34'),
-            new Bray('1231231232', 'This is a message', 'Joel', '2021-02-11 04:34'),
-            new Bray('1231231233', 'This is a message', 'Joel', '2021-02-11 04:34')
-        ];
+        $brays = sort(
+            function(Bray $bray1, Bray $bray2) {
+                if ($bray1->id()->value() === $bray2->id()->value()) {
+                    return 0;
+                }
+
+                return $bray1->id()->value() < $bray2->id()->value() ? -1 : 1;
+            },
+            [
+                BrayMother::create(),
+                BrayMother::create(),
+                BrayMother::create(),
+                BrayMother::create()
+            ]
+        );
 
         each(
             fn($bray) => $this->doctrineRepository()->save($bray),
@@ -40,5 +53,10 @@ final class DoctrineBrayRepositoryTest extends BraysModuleInfrastructureTestCase
         );
 
         $this->assertEquals($brays, $this->doctrineRepository()->searchAll());
+    }
+
+    /** @test */
+    public function it_should_return_null_a_non_existing_bray(): void {
+        $this->assertNull($this->doctrineRepository()->search(BrayIdMother::create()));
     }
 }

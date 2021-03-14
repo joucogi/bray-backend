@@ -9,6 +9,7 @@ use Bray\Socialnetwork\Brays\Application\SearchAll\BraysSearchAllQuery;
 use Bray\Socialnetwork\Brays\Application\SearchAll\BraysSearchAllQueryHandler;
 use Bray\Socialnetwork\Brays\Domain\Contracts\BrayRepository;
 use Bray\Socialnetwork\Brays\Domain\Bray;
+use Bray\Tests\Socialnetwork\Brays\Domain\BrayMother;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
 use function Lambdish\Phunctional\map;
@@ -45,7 +46,8 @@ class BraysSearchAllQueryHandlerTest extends MockeryTestCase
         $repository = Mockery::mock(BrayRepository::class);
 
         $brays = [
-            new Bray('1231231231', 'This is a message', 'Joel', '2021-02-11 04:34')
+            BrayMother::create(),
+            BrayMother::create(),
         ];
 
         $query = new BraysSearchAllQuery();
