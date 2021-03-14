@@ -24,13 +24,6 @@
         "mockery/mockery": "^1.4",
         "phpunit/phpunit": "^9.5"
     },
-    "config": {
-        "optimize-autoloader": true,
-        "preferred-install": {
-            "*": "dist"
-        },
-        "sort-packages": true
-    },
     "autoload": {
         "psr-4": {
             "Bray\\Apps\\Socialnetwork\\Backend\\": "apps/socialnetwork/backend/src/",
@@ -41,20 +34,6 @@
     "autoload-dev": {
         "psr-4": {
             "Bray\\Tests\\": ["tests"]
-        }
-    },
-    "replace": {
-        "symfony/polyfill-ctype": "*",
-        "symfony/polyfill-iconv": "*",
-        "symfony/polyfill-php72": "*"
-    },
-    "conflict": {
-        "symfony/symfony": "*"
-    },
-    "extra": {
-        "symfony": {
-            "allow-contrib": false,
-            "require": "5.2.*"
         }
     }
 }
