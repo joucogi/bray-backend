@@ -29,19 +29,19 @@ final class Bray extends AggregateRoot
         return new self($id, $message, $user, $date);
     }
 
-    public function id(): string {
-        return $this->id->value();
+    public function id(): BrayId {
+        return $this->id;
     }
 
-    public function message(): string {
-        return $this->message->value();
+    public function message(): BrayMessage {
+        return $this->message;
     }
 
-    public function user(): string {
-        return $this->user->value();
+    public function user(): BrayUser {
+        return $this->user;
     }
 
-    public function datetime(): string {
-        return $this->datetime->value();
+    public function datetime(): BrayDatetime {
+        return $this->datetime;
     }
 }

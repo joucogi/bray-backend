@@ -19,10 +19,10 @@ final class AllBraysSearcher
 
         return new BraysResponse(
             ...map(fn(Bray $bray): BrayResponse => new BrayResponse(
-                $bray->id(),
-                $bray->message(),
-                $bray->user(),
-                $bray->datetime()
+                $bray->id()->value(),
+                $bray->message()->value(),
+                $bray->user()->value(),
+                $bray->datetime()->value()
             ),
                 $brays
             )
