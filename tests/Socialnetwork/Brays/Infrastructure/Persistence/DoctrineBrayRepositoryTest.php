@@ -13,6 +13,7 @@ use function Lambdish\Phunctional\sort;
 
 final class DoctrineBrayRepositoryTest extends BraysModuleInfrastructureTestCase
 {
+    /** @test */
    public function it_should_save_a_course(): void {
         $bray = BrayMother::create();
 
