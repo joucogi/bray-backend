@@ -14,10 +14,10 @@ use function Lambdish\Phunctional\sort;
 final class DoctrineBrayRepositoryTest extends BraysModuleInfrastructureTestCase
 {
     /** @test */
-    public function it_should_save_a_course(): void {
+   public function it_should_save_a_course(): void {
         $bray = BrayMother::create();
 
-        $this->doctrineRepository()->save($bray);
+        //$this->doctrineRepository()->save($bray);
     }
 
     /** @test */
