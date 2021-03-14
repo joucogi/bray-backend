@@ -27,6 +27,7 @@ abstract class SocialnetworkContextInfrastructureTestCase extends Infrastructure
 
         parent::tearDown();
     }
+
     protected function kernelClass(): string {
         return SocialnetworkBackendKernel::class;
     }

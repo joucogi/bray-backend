@@ -16,6 +16,7 @@ abstract class InfrastructureTestCase extends KernelTestCase
     protected function setUp(): void {
         $_SERVER['KERNEL_CLASS'] = $this->kernelClass();
 
+        dd($_SERVER['KERNEL_CLASS']);
         self::bootKernel(['environment' => 'test']);
 
         parent::setUp();
