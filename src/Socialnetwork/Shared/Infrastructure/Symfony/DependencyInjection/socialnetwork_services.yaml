@@ -1,0 +1,19 @@
+services:
+  # Databases
+  Doctrine\ORM\EntityManager:
+    factory: [ Bray\Socialnetwork\Shared\Infrastructure\Doctrine\SocialnetworkEntityManagerFactory, create ]
+    arguments:
+      - driver: '%env(SOCIALNETWORK_DATABASE_DRIVER)%'
+        host: '%env(SOCIALNETWORK_DATABASE_HOST)%'
+        port: '%env(SOCIALNETWORK_DATABASE_PORT)%'
+        dbname: '%env(SOCIALNETWORK_DATABASE_NAME)%'
+        user: '%env(SOCIALNETWORK_DATABASE_USER)%'
+        password: '%env(SOCIALNETWORK_DATABASE_PASSWORD)%'
+      - '%env(APP_ENV)%'
+    tags:
+      - { name: bray.database_connection }
+    public: true
+
+
+  # -- IMPLEMENTATIONS SELECTOR --
+  Bray\Socialnetwork\Brays\Domain\Contracts\BrayRepository: '@Bray\Socialnetwork\Brays\Infrastructure\Persistence\DoctrineBrayRepository'

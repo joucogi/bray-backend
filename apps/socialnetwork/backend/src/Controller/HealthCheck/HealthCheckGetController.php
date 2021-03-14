@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bray\Apps\SocialNetwork\Backend\Controller\HealthCheck;
+namespace Bray\Apps\Socialnetwork\Backend\Controller\HealthCheck;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

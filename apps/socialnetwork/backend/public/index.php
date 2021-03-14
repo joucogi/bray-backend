@@ -1,6 +1,6 @@
 <?php
 
-use Bray\Apps\SocialNetwork\Backend\BraySocialNetworkBackendKernel;
+use Bray\Apps\Socialnetwork\Backend\SocialnetworkBackendKernel;
 use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -23,7 +23,7 @@ if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? $_ENV['TRUSTED_HOSTS'] ?? false
     Request::setTrustedHosts([$trustedHosts]);
 }
 
-$kernel = new BraySocialNetworkBackendKernel($_SERVER['APP_ENV'], (bool)$_SERVER['APP_DEBUG']);
+$kernel = new SocialnetworkBackendKernel($_SERVER['APP_ENV'], (bool)$_SERVER['APP_DEBUG']);
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();

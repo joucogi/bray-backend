@@ -45,3 +45,7 @@ cache-clear:
 .PHONY: test
 test: composer-env-file
 	docker exec bray-socialnetwork-backend-php ./vendor/bin/phpunit --testsuite socialnetwork
+
+.PHONY: ping-mysql
+ping-mysql:
+	@docker exec bray-socialnetwork-mysql mysqladmin --user=root --password=$(passw_mysql) --host "127.0.0.1" ping --silent

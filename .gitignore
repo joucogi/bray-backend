@@ -7,6 +7,7 @@
 /apps/*/*/public/bundles/
 /apps/*/*/var/
 /vendor/
+symfony.lock
 ###< symfony/framework-bundle ###
 
 
