@@ -4,10 +4,10 @@ namespace Bray\Apps\Socialnetwork\Backend;
 
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symfony\Component\HttpKernel\Kernel as BaseKernel;
+use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
-class SocialnetworkBackendKernel extends BaseKernel
+class SocialnetworkBackendKernel extends Kernel
 {
     use MicroKernelTrait;
 
