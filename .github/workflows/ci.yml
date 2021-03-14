@@ -30,7 +30,7 @@ jobs:
 
       - name: Wait for the environment to get up
         run: |
-          while ! make ping-mysql &>/dev/null; do
+          while ! make ping-mysql passw_mysql=${{ secrets.MYSQL_PASSWORD }} &>/dev/null; do
               echo "Waiting for database connection..."
               sleep 2
           done
