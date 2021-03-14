@@ -13,10 +13,13 @@ abstract class InfrastructureTestCase extends KernelTestCase
 {
     abstract protected function kernelClass(): string;
 
-    protected function setUp(): void {
-        $_SERVER['KERNEL_CLASS'] = $this->kernelClass();
+    protected static function createKernel(array $options = []) {
+        return parent::createKernel($options);
+    }
 
-      //  dd(self::getKernelClass());
+    protected function setUp(): void {
+      //  $_SERVER['KERNEL_CLASS'] = $this->kernelClass();
+
         self::bootKernel(['environment' => 'test']);
 
         parent::setUp();

@@ -10,6 +10,8 @@ use Doctrine\ORM\EntityManager;
 
 abstract class SocialnetworkContextInfrastructureTestCase extends InfrastructureTestCase
 {
+    protected static $class = SocialnetworkBackendKernel::class;
+
     protected function setUp(): void
     {
         parent::setUp();
